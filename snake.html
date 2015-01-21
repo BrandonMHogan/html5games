@@ -24,6 +24,18 @@ $(document).ready(function(){
 	var snake_array; //an array of cells to make up the snake
 	var enemy_array; //an array of cells to make up the enemies
 	
+	
+	//If put into an html page, will prevent the arrow keys from scrolling the page when the game
+	//has been started
+	window.addEventListener("keydown", function(e) {
+		// space and arrow keys
+		if(started) {
+			if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+				e.preventDefault();
+			}
+		}
+	}, false);
+	
 	function init()
 	{
 		d = "right"; //default direction
